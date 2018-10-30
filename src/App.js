@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchBar from './components/search'
+import { BrowserRouter, Route } from "react-router-dom";
+import Navbar from './components/NavBar'
+import MovieSearch from './components/MovieSearch'
+import Home from './components/Home'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <SearchBar/>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Route path="/" exact component={Home} />
+          <Route path="/search" component={MovieSearch} />
+          {/* <Route path="/featured" component={Featured} /> */}
+        </div>
+      </BrowserRouter>
     );
   }
 }
