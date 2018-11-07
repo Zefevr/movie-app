@@ -7,17 +7,17 @@ export default class Home extends Component {
     return (
       <div>
         <div className="row justify-content-md-center">
-        <Paper className="home_paper" elevation={4}>
-          <div>
-          <img className="image" src="/images/cinema.png" alt="cinema" />
-          </div>
-          <Typography className="text_paper" variant="h5" component="h3">
+          <Paper className="home_paper" elevation={4}>
+            <div>
+              <img className="image" src="/images/cinema.png" alt="cinema" />
+            </div>
+            <Typography className="text_paper" variant="h5" component="h3">
             Welcome to the Movie App
-          </Typography>
-          <Typography component="p">
+            </Typography>
+            <Typography component="p">
             Please go ahead and search for your favourite movies, enjoy!
-          </Typography>
-        </Paper>
+            </Typography>
+          </Paper>
         </div>
       </div>
     );
