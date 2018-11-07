@@ -4,7 +4,7 @@
 ![css icon](https://github.com/Zefevr/FinalEvaluation/blob/master/dev-icons/css.svg)
 
 # Movie app
-> This app is deployed and it can be visited [here](https://youtube-clone-zf.herokuapp.com/)
+> Frontend assigment
 
 ### Getting Started
 Checkout this repo, install dependencies, then start the gulp process with the following:
