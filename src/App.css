@@ -98,3 +98,32 @@
 .search .results li:hover { 
   background: rgba(88, 85, 85, 0.1);
 }
+
+
+.backToSearch-button {
+  margin-top: 30px !important;
+  margin-bottom: 10px !important
+}
+.movie-Image{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.movie-details{
+  list-style-type: none
+}
+
+.featured_details{
+  margin-top: 20px
+}
+
+.movieFeaturedOne{
+  background-color: #babdcc
+}
+
+.movieFeaturedTwo{
+  background-color: #66b1ee
+}
+
+.imgage_featured{
+  margin-top: 20px
+}

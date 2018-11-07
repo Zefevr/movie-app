@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from './components/NavBar'
 import MovieSearch from './components/MovieSearch'
 import Home from './components/Home'
+import Featured from './components/Featured'
 
 class App extends Component {
   render() {
@@ -13,7 +14,7 @@ class App extends Component {
           <Navbar />
           <Route path="/" exact component={Home} />
           <Route path="/search" component={MovieSearch} />
-          {/* <Route path="/featured" component={Featured} /> */}
+          <Route path="/featured" component={Featured} /> 
         </div>
       </BrowserRouter>
     );

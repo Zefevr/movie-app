@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import MovieCard from './MovieCard';
 import Search from './SearchBar';
 import { API_KEY } from '../lib/constants';
@@ -18,7 +17,7 @@ class MovieSearch extends Component {
 
     componentDidMount() {
       this.loadMovie()
-      this._mounted = true
+      this._mounted = true 
     }
 
     componentDidUpdate(prevState) {
@@ -36,9 +35,11 @@ class MovieSearch extends Component {
       axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${this.state.movieId}&plot=${this.state.plot}`)
         .then(response => {
 
-          if (this._mounted){
+          if (this._mounted && response.data.Response !== "False"){
             this.setState({ movie: response.data });
-          }})
+          }
+        })
+          
       
         .catch(error => {
           console.log('Opps!', error.message);
@@ -58,9 +59,8 @@ class MovieSearch extends Component {
           .then(response => {
 
             if (response.data.Search && this._mounted) {
-              const movies = response.data.Search.slice(0, 10);
-              this.setState({ searchResults: movies });
-              
+              const movies = response.data.Search.slice(0, 10); // limited the search to a max of 10 movies
+              this.setState({ searchResults: movies }); 
             }
             else if (response.data.Response === "False" && this.state.title.length > 3 && this._mounted){
               this.setState({
@@ -99,7 +99,7 @@ class MovieSearch extends Component {
       )
     }
 
-    // even handler to select how to plot details
+    // event handler to select how to plot details
     handleSelect(event) {
       this.setState({ plot: event.target.value });
     }
