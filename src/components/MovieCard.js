@@ -1,10 +1,7 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 
-//import './MovieCard.css';
-
 const MovieCard = (props) => {
-  //console.log(typeof(props.movie.Genre), "GENRE")
   let Actors = ""
   let Writers = ""
   let Language = ""

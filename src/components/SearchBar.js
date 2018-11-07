@@ -1,7 +1,5 @@
 import React from 'react';
-//import Paper from '@material-ui/core'
 
-//import './Search.css';
 
 const Search = (props) => {
   let resultList = null
