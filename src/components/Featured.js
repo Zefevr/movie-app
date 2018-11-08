@@ -12,12 +12,12 @@ export default class Featured extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&i=tt0800369&plot=full`)
+    axios.get(`http://www.omdbapi.com/?t=thor&apikey=${API_KEY}&plot=full`)
       .then(response => {
         this.setState({ movieFeaturedOne: response.data });
       });
 
-    axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&i=tt0209144&plot=full`)
+    axios.get(`http://www.omdbapi.com/?t=memento&apikey=${API_KEY}&plot=full`)
       .then(response => {
         this.setState({ movieFeaturedTwo: response.data });
       })
