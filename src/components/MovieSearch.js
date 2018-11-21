@@ -16,13 +16,13 @@ class MovieSearch extends Component {
     }
 
     componentDidMount() {
-      this.loadMovie()
       this._mounted = true 
     }
 
-    componentDidUpdate(prevState) {
-      if (prevState.movieId !== this.state.movieId) {
+    componentDidUpdate() {
+      if (this.state.movieId !== "" && this.state.isSearching) {
         this.loadMovie()
+        this.setState({isSearching: false})  
       }
     }
 
@@ -57,12 +57,11 @@ class MovieSearch extends Component {
       this.timeout = setTimeout(() => {
         axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${this.state.title}`)
           .then(response => {
-
-            if (response.data.Search && this._mounted) {
+            if (response.data.Search) {
               const movies = response.data.Search.slice(0, 10); // limited the search to a max of 10 movies
               this.setState({ searchResults: movies }); 
             }
-            else if (response.data.Response === "False" && this.state.title.length > 3 && this._mounted){
+            else if (response.data.Response === "False" && this.state.title.length > 3){
               this.setState({
                 noResults: "noResults",
                 isSearching: false,
@@ -83,7 +82,6 @@ class MovieSearch extends Component {
       this.setState(
         {
           movieId: item.imdbID,
-          isSearching: false,
           title: item.Title
         }
       )
@@ -94,7 +92,10 @@ class MovieSearch extends Component {
       this.setState(
         {
           movieId: "",
-          title: ""
+          title: "",
+          movie: {},
+          searchResults: [],
+          noResults: ""
         }
       )
     }
@@ -107,7 +108,7 @@ class MovieSearch extends Component {
 
     render() {
       return (          
-        <div onClick={() => this.setState({ isSearching: false })}>
+        <div>
           { this.state.movieId === "" ?   
             <div> 
               <label>
